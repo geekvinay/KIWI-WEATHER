@@ -17,8 +17,8 @@ const weather = ({ weather }) => {
   });
 
   return (
-    <div className='weather border-4 border-gray-200 px-4 pt-6 pb-4 rounded-lg m-[1rem] box-border'>
-      <span className='flex justify-between font-semibold text-gray-500'>
+    <div className='weather px-4 pt-6 pb-4 rounded-lg m-[1rem] box-border'>
+      {/* <span className='flex justify-between font-semibold text-gray-500'>
         <span>{weatherDetails.date}</span>
         <span>{weatherDetails.time}</span>
       </span>
@@ -39,7 +39,7 @@ const weather = ({ weather }) => {
             </h1>
           </span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
