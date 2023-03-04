@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Weather from './components/Weather';
 import News from './components/News';
+import Footer from './components/Footer';
 import axios from 'axios';
 import { getWeather } from './utils/getWeather';
 
@@ -27,12 +28,13 @@ function App() {
     loader();
   }, []);
   return (
-    <div>
+    <div className='flex flex-col items-center justify-start'>
       <Header></Header>
       <div className='hero--section'>
         <News></News>
         <Weather weather={weather}></Weather>
       </div>
+      <Footer></Footer>
     </div>
   );
 }

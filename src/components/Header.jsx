@@ -9,7 +9,7 @@ const Header = () => {
   const [user, setUser] = useState(0);
 
   return (
-    <div className='header w-[100vw] min-h-[10rem] flex flex-col'>
+    <div className='header max-w-[1240px] w-[100vw] min-h-[10rem] flex flex-col'>
       <section className='topSection flex flex-row py-[3rem] px-[5rem] justify-between'>
         <article className='h-[80%] leftSection list-none flex items-center'>
           <img src={phone} className='h-[3rem] pr-5 opacity-[60%]' alt='' />

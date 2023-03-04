@@ -33,19 +33,43 @@ body{
 
 div.hero--section{
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 5fr 3fr;
     grid-template-rows: 1fr;
 
-    margin: 0 5rem;    
-}
+    width: 100vw;
 
-div.weather--wrapper{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr;
+    padding: 0 5rem;    
 }
 
 div.navbar .active{
     text-decoration: underline;
     text-underline-offset: 10%;
+}
+
+.img--container {
+  position: relative;
+  width: 100%;
+}
+
+.img--container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background-color: #44413ccb;
+  z-index: 1;
+}
+
+.img--container img{
+    filter: grayscale(0.8);
+}
+
+.headline{
+    @apply hover:text-blue-900 cursor-pointer hover:underline;
+}
+
+footer.footer{
 }
