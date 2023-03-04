@@ -73,3 +73,7 @@ div.navbar .active{
 
 footer.footer{
 }
+
+.smooth--transition{
+    @apply transition-all duration-500;
+}
