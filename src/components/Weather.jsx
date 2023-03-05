@@ -51,24 +51,16 @@ const weather = ({ weather }) => {
           animate={defaults.animate}
         />
       </div>
-      <div className='second--weather my-4 px-2 py-4 border-2 border-[rgba(68,65,60,0.33)] min-h-[10rem] flex flex-col'>
+      <div className='second--weather my-4 px-4 py-4 border-2 border-[rgba(68,65,60,0.33)] min-h-[10rem] flex flex-col'>
         <div className='details h-[100%] w-[100%] grid grid-cols-4 grid-rows-4'>
-          <p className='label py-2 col-start-1 col-end-4'>
-            Maximum Temperature
-          </p>
-          <p className='value py-2'>32°C</p>
-          <p className='label py-2 col-start-1 col-end-4'>
-            Minimum Temperature
-          </p>
-          <p className='value py-2'>26°C</p>
-          <p className='label py-2 col-start-1 col-end-4'>
-            Minimum Temperature
-          </p>
-          <p className='value py-2'>26°C</p>
-          <p className='label py-2 col-start-1 col-end-4'>
-            Minimum Temperature
-          </p>
-          <p className='value py-2'>26°C</p>
+          <p className='label py-2 col-start-1 col-end-4'>Max Temperature</p>
+          <p className='value py-2 px-4 justify-self-end'>32°C</p>
+          <p className='label py-2 col-start-1 col-end-4'>Min Temperature</p>
+          <p className='value py-2 px-4 justify-self-end'>26°C</p>
+          <p className='label py-2 col-start-1 col-end-4'>Pressure</p>
+          <p className='value py-2 px-4 justify-self-end'>1019</p>
+          <p className='label py-2 col-start-1 col-end-4'>humidity</p>
+          <p className='value py-2 px-4 justify-self-end'>26</p>
         </div>
       </div>
     </div>
