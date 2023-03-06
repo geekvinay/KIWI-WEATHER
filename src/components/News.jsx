@@ -1,6 +1,9 @@
-import React from 'react';
-import NewsArticle from './NewsArticle';
-import { FaCalendarAlt, FaPenNib } from 'react-icons/fa';
+import React from 'react'
+import NewsArticle from './NewsArticle'
+import { FaCalendarAlt, FaPenNib } from 'react-icons/fa'
+
+const dataJSON = localStorage.getItem('dataResponse')
+console.log(JSON.parse(dataJSON))
 
 const news = () => {
   return (
@@ -42,7 +45,7 @@ const news = () => {
       <NewsArticle />
       <NewsArticle />
     </div>
-  );
-};
+  )
+}
 
-export default news;
+export default news

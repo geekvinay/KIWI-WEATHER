@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import ReactAnimatedWeather from 'react-animated-weather';
+import React, { useEffect, useState } from 'react'
+import ReactAnimatedWeather from 'react-animated-weather'
+
+const dataJSON = localStorage.getItem('dataResponse')
+console.log(JSON.parse(dataJSON))
 
 const availIcons = [
   'CLEAR_DAY',
@@ -11,15 +14,15 @@ const availIcons = [
   'SLEET',
   'SNOW',
   'WIND',
-  'FOG',
-];
+  'FOG'
+]
 
 const defaults = {
   icon: 'RAIN',
   color: 'black',
   size: 80,
-  animate: true,
-};
+  animate: true
+}
 
 const weather = ({ weather }) => {
   const [weatherDetails, setDetails] = useState({
@@ -27,14 +30,14 @@ const weather = ({ weather }) => {
     temperature: weather.temperature,
     date: weather.date,
     time: weather.time,
-    forecast: weather.forecast,
-  });
+    forecast: weather.forecast
+  })
 
   useEffect(() => {
-    (() => {
-      setDetails(weather);
-    })();
-  });
+    ;(() => {
+      setDetails(weather)
+    })()
+  })
 
   return (
     <div className='weather px-4 py-[3rem] '>
@@ -64,7 +67,7 @@ const weather = ({ weather }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default weather;
+export default weather

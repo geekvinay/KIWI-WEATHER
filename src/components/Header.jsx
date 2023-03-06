@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
-import img from '../assets/logo.svg';
-import phone from '../assets/phone.svg';
-import { auth, provider } from '../utils/auth';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import React, { useState } from 'react'
+import { FaSearch } from 'react-icons/fa'
+import img from '../assets/logo.svg'
+import phone from '../assets/phone.svg'
+import { auth, provider } from '../utils/auth'
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 
-const Header = () => {
-  const [user, setUser] = useState(0);
+const Header = props => {
+  const [user, setUser] = useState(0)
 
   return (
     <div className='header max-w-[1240px] w-[100vw] min-h-[10rem] flex flex-col'>
@@ -24,18 +24,18 @@ const Header = () => {
           alt=''
         />
         <article className='rightSection h-[100%] list-none color--secondary py-2 flex flex-col justify-evenly font-semibold'>
-          {!user ? (
+          {!user && !props.user ? (
             <li
               className='uppercase flex items-center text-[#F5F2EB] bg-[#44413C] px-4 py-2 rounded-sm cursor-pointer'
               onClick={async () => {
-                console.log('Clicked Login');
-                const result = await signInWithPopup(auth, provider);
+                console.log('Clicked Login')
+                const result = await signInWithPopup(auth, provider)
                 const credential =
-                  GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                const user = result.user;
-                console.log(user, token);
-                setUser(user.displayName);
+                  GoogleAuthProvider.credentialFromResult(result)
+                const token = credential.accessToken
+                const user = result.user
+                console.log(user, token)
+                setUser(user.displayName)
               }}
             >
               <FaSearch className='text-1xl' />
@@ -43,7 +43,9 @@ const Header = () => {
             </li>
           ) : (
             <li className='uppercase flex items-center'>
-              <span className='px-4 text-1xl'>{user}</span>
+              <span className='px-4 text-1xl'>
+                {user || props.user.displayName}
+              </span>
             </li>
           )}
         </article>
@@ -63,7 +65,7 @@ const Header = () => {
         <li className='cursor-pointer'>Latest</li>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

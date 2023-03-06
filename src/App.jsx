@@ -37,7 +37,7 @@ function App() {
         <News></News>
         <Weather weather={weather}></Weather>
       </div>
-      <Footer></Footer>
+      <Footer className='max-w-[1240px]'></Footer>
     </div>
   );
 }
