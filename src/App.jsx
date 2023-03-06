@@ -19,7 +19,7 @@ function App() {
   let [data, setData] = useState({});
   let [city, setCity] = useState({ city: 'Hyderabad' });
   let [weather, setWeather] = useState({});
-  let [modal, setModal] = useState(1);
+  let [modal, setModal] = useState(0);
 
   useEffect(() => {
     const loader = async () => {
