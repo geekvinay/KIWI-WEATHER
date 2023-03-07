@@ -1,4 +1,3 @@
-import { UserCredential } from 'firebase/auth'
 import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import HomeSection from './components/HomeSection'
@@ -13,18 +12,22 @@ import {
 } from 'react-router-dom'
 import About from './components/Profile'
 import Profile from './components/Profile'
+import { auth } from './utils/auth'
 
 let url = 'http://localhost:3001/updates/Hyderabad'
 
 async function getData (city) {
-  console.log(UserCredential)
-  let data = await axios.get((token = Firebase.getIdToken(true)), {
-    url,
-    header: {
-      authentication: `Bearer ${token}`
-    }
-  })
-  return data.data
+  if (auth.currentUser) {
+    token = await auth.currentUser.getIdToken()
+    console.log(token)
+    let data = await axios.get({
+      url,
+      header: {
+        authentication: `Bearer ${token}`
+      }
+    })
+    return data.data
+  }
 }
 
 const router = createBrowserRouter([
@@ -44,7 +47,7 @@ function App () {
 
 function AppPrev () {
   let [city, setCity] = useState({ city: 'Hyderabad' })
-  let [data, setData] = useState({})
+  let [user, setUser] = useState({})
   let [modal, setModal] = useState(1)
   let presPath = useLocation()
 
