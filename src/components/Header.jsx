@@ -1,16 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import img from '../assets/logo.svg'
 import phone from '../assets/phone.svg'
 import { auth, provider } from '../utils/auth'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const Header = props => {
   const [user, setUser] = useState(0)
 
-  useEffect(() => {
-    c
-  }, [])
+  const auth = getAuth()
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      user = user.displayName
+    }
+  })
+
   return (
     <div className='header max-w-[1240px] w-[100vw] min-h-[10rem] flex flex-col'>
       <section className='topSection flex flex-row py-[3rem] px-[5rem] justify-between'>
@@ -31,13 +36,11 @@ const Header = props => {
             <li
               className='uppercase flex items-center text-[#F5F2EB] bg-[#44413C] px-4 py-2 rounded-sm cursor-pointer'
               onClick={async () => {
-                console.log('Clicked Login')
                 const result = await signInWithPopup(auth, provider)
                 const credential =
                   GoogleAuthProvider.credentialFromResult(result)
                 const token = credential.accessToken
                 const user = result.user
-                console.log(user, token)
                 setUser(user.displayName)
               }}
             >
@@ -46,9 +49,7 @@ const Header = props => {
             </li>
           ) : (
             <li className='uppercase flex items-center'>
-              <span className='px-4 text-1xl'>
-                {user || props.user.displayName}
-              </span>
+              <span className='px-4 text-1xl'>{user}</span>
             </li>
           )}
         </article>

@@ -12,12 +12,17 @@ import {
 } from 'react-router-dom'
 import About from './components/Profile'
 import Profile from './components/Profile'
+import { auth } from './utils/auth'
 
 let url = 'http://localhost:3001/updates/Hyderabad'
 
 async function getData (city) {
-  console.log('Calling get Data')
-  let data = await axios({ method: 'get', url })
+  let data = await axios.get((token = auth.currentUser.getIdToken(true)), {
+    url,
+    header: {
+      authentication: `Bearer ${token}`
+    }
+  })
   return data.data
 }
 
@@ -42,9 +47,6 @@ function AppPrev () {
   let [modal, setModal] = useState(1)
   let presPath = useLocation()
 
-  console.log('1')
-  console.log(location)
-  console.log('2')
   useEffect(() => {
     const loader = async () => {
       let value = await getData(city)
@@ -58,7 +60,6 @@ function AppPrev () {
       {modal ? <LoginModal /> : ''}
       <Header></Header>
       {presPath.pathname === '/profile' ? <Profile /> : ''}
-      {console.log(presPath.pathname)}
       {presPath.pathname === '/' ? <HomeSection /> : ''}
       <Footer className='max-w-[1240px]'></Footer>
     </div>
