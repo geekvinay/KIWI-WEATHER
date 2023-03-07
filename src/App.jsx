@@ -1,3 +1,4 @@
+import { UserCredential } from 'firebase/auth'
 import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import HomeSection from './components/HomeSection'
@@ -12,12 +13,12 @@ import {
 } from 'react-router-dom'
 import About from './components/Profile'
 import Profile from './components/Profile'
-import { auth } from './utils/auth'
 
 let url = 'http://localhost:3001/updates/Hyderabad'
 
 async function getData (city) {
-  let data = await axios.get((token = auth.currentUser.getIdToken(true)), {
+  console.log(UserCredential)
+  let data = await axios.get((token = Firebase.getIdToken(true)), {
     url,
     header: {
       authentication: `Bearer ${token}`
