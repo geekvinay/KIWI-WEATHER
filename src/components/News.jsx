@@ -5,7 +5,7 @@ import { FaCalendarAlt, FaPenNib } from 'react-icons/fa'
 const dataJSON = localStorage.getItem('dataResponse')
 console.log(JSON.parse(dataJSON))
 
-const news = () => {
+const News = () => {
   return (
     <div className='w-[100%] min-h-[100vh] px-4 pt-8 border-r-[rgba(68,65,60,0.33)]'>
       {/* Main Headline */}
@@ -48,4 +48,4 @@ const news = () => {
   )
 }
 
-export default news
+export default News

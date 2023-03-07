@@ -24,7 +24,7 @@ const defaults = {
   animate: true
 }
 
-const weather = ({ weather }) => {
+const Weather = ({ weather }) => {
   const [weatherDetails, setDetails] = useState({
     city: weather.city,
     temperature: weather.temperature,
@@ -70,4 +70,4 @@ const weather = ({ weather }) => {
   )
 }
 
-export default weather
+export default Weather 

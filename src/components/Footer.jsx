@@ -6,6 +6,7 @@ import {
   FaLinkedin,
   FaTwitterSquare
 } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -21,20 +22,22 @@ const Footer = () => {
       </div>
       <div className='right flex'>
         <ul className='flex flex-col h-[100%]'>
-          <a href='' className='px-2 pb-2 text-xl'>
-            Menu
-          </a>
-          <a href='/' className='px-2 py-1 text-base opacity-50'>
+          <li className='px-2 pb-2 text-xl'>Menu</li>
+          <Link
+            relative='path'
+            to='/'
+            className='px-2 pb-2 text-base opacity-50'
+          >
             Home
-          </a>
-          <a href='/' className='px-2 py-1 text-base opacity-50'>
-            News
-          </a>
-          <a href='/' className='px-2 py-1 text-base opacity-50'>
+          </Link>
+          <Link to='/profile' className='px-2 pb-2 text-base opacity-50'>
+            Profile
+          </Link>
+          <Link to='/' className='px-2 pb-2 text-base opacity-50'>
             About
-          </a>
+          </Link>
           <a href='/' className='px-2 py-1 text-base opacity-50'>
-            Weather
+            About me
           </a>
         </ul>
         <ul className='max-w-[15rem] mx-[3rem]'>

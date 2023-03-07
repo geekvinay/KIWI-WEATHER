@@ -8,6 +8,9 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 const Header = props => {
   const [user, setUser] = useState(0)
 
+  useEffect(() => {
+    c
+  }, [])
   return (
     <div className='header max-w-[1240px] w-[100vw] min-h-[10rem] flex flex-col'>
       <section className='topSection flex flex-row py-[3rem] px-[5rem] justify-between'>
