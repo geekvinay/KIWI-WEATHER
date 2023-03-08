@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ReactAnimatedWeather from 'react-animated-weather'
 
 const dataJSON = localStorage.getItem('dataResponse')
-console.log(JSON.parse(dataJSON))
+
 
 const availIcons = [
   'CLEAR_DAY',
@@ -24,13 +24,14 @@ const defaults = {
   animate: true
 }
 
+
 const Weather = ({ weather }) => {
   const [weatherDetails, setDetails] = useState({
     city: weather.city,
     temperature: weather.temperature,
     date: weather.date,
     time: weather.time,
-    forecast: weather.forecast
+    forecast: weather.forecast,
   })
 
   useEffect(() => {
@@ -70,4 +71,4 @@ const Weather = ({ weather }) => {
   )
 }
 
-export default Weather 
+export default Weather
